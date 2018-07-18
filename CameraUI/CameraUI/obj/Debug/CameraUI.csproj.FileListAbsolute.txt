@@ -1,0 +1,15 @@
+C:\Users\fddau\source\repos\CameraUI\CameraUI\bin\Debug\CameraUI.exe.config
+C:\Users\fddau\source\repos\CameraUI\CameraUI\bin\Debug\CameraUI.exe
+C:\Users\fddau\source\repos\CameraUI\CameraUI\bin\Debug\CameraUI.pdb
+C:\Users\fddau\source\repos\CameraUI\CameraUI\obj\Debug\CameraUI.csprojAssemblyReference.cache
+C:\Users\fddau\source\repos\CameraUI\CameraUI\obj\Debug\CameraUI.Form1.resources
+C:\Users\fddau\source\repos\CameraUI\CameraUI\obj\Debug\CameraUI.Properties.Resources.resources
+C:\Users\fddau\source\repos\CameraUI\CameraUI\obj\Debug\CameraUI.csproj.GenerateResource.cache
+C:\Users\fddau\source\repos\CameraUI\CameraUI\obj\Debug\CameraUI.csproj.CoreCompileInputs.cache
+C:\Users\fddau\source\repos\CameraUI\CameraUI\obj\Debug\CameraUI.exe
+C:\Users\fddau\source\repos\CameraUI\CameraUI\obj\Debug\CameraUI.pdb
+C:\Users\fddau\source\repos\CameraUI\CameraUI\bin\Debug\CameraUI.exe.manifest
+C:\Users\fddau\source\repos\CameraUI\CameraUI\bin\Debug\CameraUI.application
+C:\Users\fddau\source\repos\CameraUI\CameraUI\obj\Debug\CameraUI.TrustInfo.xml
+C:\Users\fddau\source\repos\CameraUI\CameraUI\obj\Debug\CameraUI.exe.manifest
+C:\Users\fddau\source\repos\CameraUI\CameraUI\obj\Debug\CameraUI.application
