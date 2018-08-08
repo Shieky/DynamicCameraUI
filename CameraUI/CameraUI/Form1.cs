@@ -54,6 +54,26 @@ namespace CameraUI
             }
         }
 
+        public void CheckBoxValues(string name, int index, CheckBox cb)
+        {
+            String val;
+            try
+            {
+                val = cb.Checked.ToString();
+                values.Items[index].Text = name + val;
+                using (var writer = new StreamWriter(path))
+                {
+                    foreach (ListViewItem item in values.Items)
+                    {
+                        writer.WriteLine(item.Text);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("load file first" + ex.Message);
+            }
+        }
         public void LoadFile()
         {
             try
@@ -61,17 +81,86 @@ namespace CameraUI
                 using (StreamReader sr = new StreamReader(path))
                 {
                     string line;
+                    string[] val ;
                     while ((line = sr.ReadLine()) != null)
                     {
                         getcode[i] = line;
                         values.Items.Add(getcode[i]);
+                        
+                        if (getcode[i] != "")
+                        {
+                            val = getcode[i].Split('=');
+                            if(val[1] == "True" || val[1] == "true" || val[1] == "false" || val[1] == "False" )
+                            {
+                                if (val[0] == "thirdPerson")
+                                    thirdPersonCB.Checked = Boolean.Parse(val[1]);
+                                if (val[0] == "cameraPreview")
+                                    igCameraCB.Checked = Boolean.Parse(val[1]);
+                                if (val[0] == "avoidWalls")
+                                    wallsCB.Checked = Boolean.Parse(val[1]);
+                                if (val[0] == "useSway")
+                                    SwayCB.Checked = Boolean.Parse(val[1]);
+                            }
+                            else
+                            {
+                                switch (val[0])
+                                {
+                                    case "fov": fovSlider.Value = Convert.ToInt32(val[1].Split('.')[0]);
+                                        break;
+                                    case "positionSmooth": posSmoothSlider.Value = Convert.ToInt32(val[1].Split('.')[0]);
+                                        break;
+                                    case "rotationSmooth":
+                                        rotationSmoothSlider.Value = Convert.ToInt32(val[1].Split('.')[0]);
+                                        break;
+                                    case "3rdPersonCameraDistance":
+                                        distanceSlider.Value = Convert.ToInt32(val[1].Split('.')[0]);
+                                        break;
+                                    case "3rdPersonCameraUpperHeight":
+                                        upperHightSlider.Value = Convert.ToInt32(val[1].Split('.')[0]);
+                                        break;
+                                    case "3rdPersonCameraLowerHeight":
+                                        lowerHeightSlider.Value = Convert.ToInt32(val[1].Split('.')[0]);
+                                        break;
+                                    case "3rdPersonCameraLateralNear":
+                                        lateralNearSlider.Value = Convert.ToInt32(val[1].Split('.')[0]);
+                                        break;
+                                    case "3rdPersonCameraLateralFar":
+                                        lateralFarSlider.Value = Convert.ToInt32(val[1].Split('.')[0]);
+                                        break;
+                                    case "3rdPersonCameraForwardPrediction":
+                                        fPredictionSlider.Value = Convert.ToInt32(val[1].Split('.')[0]);
+                                        break;
+                                    case "3rdPersonCameraSpeed":
+                                        cSpeedSlider.Value = Convert.ToInt32(val[1].Split('.')[0]);
+                                        break;
+                                    case "lookAtPosX":
+                                        posXSlider.Value = Convert.ToInt32(val[1].Split('.')[0]);
+                                        break;
+                                    case "lookAtPosY":
+                                        trackBar2.Value = Convert.ToInt32(val[1].Split('.')[0]);
+                                        break;
+                                    case "lookAtPosZ":
+                                        posZSlider.Value = Convert.ToInt32(val[1].Split('.')[0]);
+                                        break;
+                                    case "maxSway":
+                                        maxSwaySlider.Value = Convert.ToInt32(val[1].Split('.')[0]);
+                                        break;
+                                    case "swaySpeed":
+                                        swaySpeedSlider.Value = Convert.ToInt32(val[1].Split('.')[0]);
+                                        break;
+                                }
+                            }
+                            Console.WriteLine(val[1] + "\n");
+                        }
+                        // fovSlider.Value = 
+                        //fovLabel.Text = val.ToString(); 
                         i++;
                     }
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine("llulululul wrong file dude");
+                Console.WriteLine("Wrong file, please select your DynamicCamera.cfg");
                 Console.WriteLine(e.Message);
             }
           /*  int x = 0;
@@ -131,6 +220,81 @@ namespace CameraUI
         private void lateralNearSlider_Scroll(object sender, EventArgs e)
         {
             SliderValues("3rdPersonCameraLateralNear=", 7, lateralNearSlider, nearLabel);
+        }
+
+        private void wallsCB_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBoxValues("avoidWalls=", 15, wallsCB);
+        }
+
+        private void fPredictionSlider_Scroll(object sender, EventArgs e)
+        {
+            SliderValues("3rdPersonCameraForwardPrediction=", 9, fPredictionSlider, forwardLabel);
+
+        }
+
+        private void cSpeedSlider_Scroll(object sender, EventArgs e)
+        {
+            SliderValues("3rdPersonCameraSpeed=", 10, cSpeedSlider, speedLabel);
+
+        }
+
+        private void thirdPersonCB_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBoxValues("thirdPerson=", 3, thirdPersonCB);
+        }
+
+        private void igCameraCB_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBoxValues("cameraPreview=", 12, igCameraCB);
+            CheckBoxValues("moveCameraInGame=", 13, igCameraCB);
+        }
+
+        private void SwayCB_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBoxValues("useSway=", 20, SwayCB);
+        }
+
+        private void posSmoothSlider_Scroll(object sender, EventArgs e)
+        {
+            SliderValues("positionSmooth=", 1, posSmoothSlider, posSmoothLabel);
+
+        }
+
+        private void rotationSmoothSlider_Scroll(object sender, EventArgs e)
+        {
+            SliderValues("rotationSmooth=", 2, rotationSmoothSlider, rotationSmoothLabel);
+
+        }
+
+        private void posXSlider_Scroll(object sender, EventArgs e)
+        {
+            SliderValues("lookAtPosX=", 16, posXSlider, lookXLabel);
+
+        }
+
+        private void trackBar2_Scroll(object sender, EventArgs e)
+        {
+            SliderValues("lookAtPosY=", 17, trackBar2, lookYLabel);
+
+        }
+
+        private void posZSlider_Scroll(object sender, EventArgs e)
+        {
+            SliderValues("lookAtPosZ=", 18, posZSlider, lookZLabel);
+
+        }
+
+        private void maxSwaySlider_Scroll(object sender, EventArgs e)
+        {
+            SliderValues("maxSway=", 21, maxSwaySlider, maxSwayLabel);
+
+        }
+
+        private void swaySpeedSlider_Scroll(object sender, EventArgs e)
+        {
+            SliderValues("swaySpeed=", 22, swaySpeedSlider, swaySpeedLabel);
+
         }
 
         private void lateralFarSlider_Scroll(object sender, EventArgs e)
