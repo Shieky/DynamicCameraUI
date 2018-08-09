@@ -50,6 +50,8 @@
             this.loadBtn = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.speedLabel = new System.Windows.Forms.Label();
+            this.forwardLabel = new System.Windows.Forms.Label();
             this.cSpeedSlider = new System.Windows.Forms.TrackBar();
             this.label7 = new System.Windows.Forms.Label();
             this.fPredictionSlider = new System.Windows.Forms.TrackBar();
@@ -58,8 +60,6 @@
             this.SwayCB = new System.Windows.Forms.CheckBox();
             this.thirdPersonCB = new System.Windows.Forms.CheckBox();
             this.wallsCB = new System.Windows.Forms.CheckBox();
-            this.speedLabel = new System.Windows.Forms.Label();
-            this.forwardLabel = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.posSmoothSlider = new System.Windows.Forms.TrackBar();
             this.label13 = new System.Windows.Forms.Label();
@@ -68,15 +68,15 @@
             this.rotationSmoothLabel = new System.Windows.Forms.Label();
             this.posSmoothLabel = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.posZSlider = new System.Windows.Forms.TrackBar();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lookZLabel = new System.Windows.Forms.Label();
             this.posXSlider = new System.Windows.Forms.TrackBar();
             this.label9 = new System.Windows.Forms.Label();
             this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.label10 = new System.Windows.Forms.Label();
             this.lookYLabel = new System.Windows.Forms.Label();
             this.lookXLabel = new System.Windows.Forms.Label();
-            this.posZSlider = new System.Windows.Forms.TrackBar();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lookZLabel = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.maxSwaySlider = new System.Windows.Forms.TrackBar();
             this.label11 = new System.Windows.Forms.Label();
@@ -84,6 +84,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.swaySpeedLabel = new System.Windows.Forms.Label();
             this.maxSwayLabel = new System.Windows.Forms.Label();
+            this.btnDiscard = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.fovSlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.distanceSlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.upperHightSlider)).BeginInit();
@@ -97,9 +98,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.posSmoothSlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rotationSmoothSlider)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.posZSlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.posXSlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.posZSlider)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.maxSwaySlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.swaySpeedSlider)).BeginInit();
@@ -123,7 +124,7 @@
             this.fovSlider.Name = "fovSlider";
             this.fovSlider.Size = new System.Drawing.Size(209, 45);
             this.fovSlider.TabIndex = 2;
-            this.fovSlider.Value = 20;
+            this.fovSlider.Value = 100;
             this.fovSlider.Scroll += new System.EventHandler(this.fovSlider_Scroll);
             // 
             // label1
@@ -151,6 +152,7 @@
             this.distanceSlider.Name = "distanceSlider";
             this.distanceSlider.Size = new System.Drawing.Size(209, 45);
             this.distanceSlider.TabIndex = 4;
+            this.distanceSlider.Value = 100;
             this.distanceSlider.Scroll += new System.EventHandler(this.distanceSlider_Scroll);
             // 
             // label3
@@ -165,19 +167,21 @@
             // upperHightSlider
             // 
             this.upperHightSlider.Location = new System.Drawing.Point(6, 121);
-            this.upperHightSlider.Maximum = 200;
+            this.upperHightSlider.Maximum = 150;
             this.upperHightSlider.Name = "upperHightSlider";
             this.upperHightSlider.Size = new System.Drawing.Size(209, 45);
             this.upperHightSlider.TabIndex = 6;
+            this.upperHightSlider.Value = 100;
             this.upperHightSlider.Scroll += new System.EventHandler(this.upperHightSlider_Scroll);
             // 
             // lowerHeightSlider
             // 
             this.lowerHeightSlider.Location = new System.Drawing.Point(6, 172);
-            this.lowerHeightSlider.Maximum = 200;
+            this.lowerHeightSlider.Maximum = 150;
             this.lowerHeightSlider.Name = "lowerHeightSlider";
             this.lowerHeightSlider.Size = new System.Drawing.Size(209, 45);
             this.lowerHeightSlider.TabIndex = 8;
+            this.lowerHeightSlider.Value = 100;
             this.lowerHeightSlider.Scroll += new System.EventHandler(this.lowerHeightSlider_Scroll);
             // 
             // label4
@@ -192,10 +196,11 @@
             // lateralNearSlider
             // 
             this.lateralNearSlider.Location = new System.Drawing.Point(6, 223);
-            this.lateralNearSlider.Maximum = 200;
+            this.lateralNearSlider.Maximum = 150;
             this.lateralNearSlider.Name = "lateralNearSlider";
             this.lateralNearSlider.Size = new System.Drawing.Size(209, 45);
             this.lateralNearSlider.TabIndex = 10;
+            this.lateralNearSlider.Value = 100;
             this.lateralNearSlider.Scroll += new System.EventHandler(this.lateralNearSlider_Scroll);
             // 
             // label5
@@ -267,10 +272,11 @@
             // lateralFarSlider
             // 
             this.lateralFarSlider.Location = new System.Drawing.Point(6, 274);
-            this.lateralFarSlider.Maximum = 200;
+            this.lateralFarSlider.Maximum = 150;
             this.lateralFarSlider.Name = "lateralFarSlider";
             this.lateralFarSlider.Size = new System.Drawing.Size(209, 45);
             this.lateralFarSlider.TabIndex = 21;
+            this.lateralFarSlider.Value = 100;
             this.lateralFarSlider.Scroll += new System.EventHandler(this.lateralFarSlider_Scroll);
             // 
             // loadBtn
@@ -316,6 +322,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Main Settings";
             // 
+            // speedLabel
+            // 
+            this.speedLabel.AutoSize = true;
+            this.speedLabel.Location = new System.Drawing.Point(331, 385);
+            this.speedLabel.Name = "speedLabel";
+            this.speedLabel.Size = new System.Drawing.Size(0, 13);
+            this.speedLabel.TabIndex = 27;
+            // 
+            // forwardLabel
+            // 
+            this.forwardLabel.AutoSize = true;
+            this.forwardLabel.Location = new System.Drawing.Point(331, 336);
+            this.forwardLabel.Name = "forwardLabel";
+            this.forwardLabel.Size = new System.Drawing.Size(0, 13);
+            this.forwardLabel.TabIndex = 26;
+            // 
             // cSpeedSlider
             // 
             this.cSpeedSlider.Location = new System.Drawing.Point(6, 376);
@@ -323,6 +345,7 @@
             this.cSpeedSlider.Name = "cSpeedSlider";
             this.cSpeedSlider.Size = new System.Drawing.Size(209, 45);
             this.cSpeedSlider.TabIndex = 25;
+            this.cSpeedSlider.Value = 100;
             this.cSpeedSlider.Scroll += new System.EventHandler(this.cSpeedSlider_Scroll);
             // 
             // label7
@@ -337,10 +360,11 @@
             // fPredictionSlider
             // 
             this.fPredictionSlider.Location = new System.Drawing.Point(6, 325);
-            this.fPredictionSlider.Maximum = 200;
+            this.fPredictionSlider.Maximum = 150;
             this.fPredictionSlider.Name = "fPredictionSlider";
             this.fPredictionSlider.Size = new System.Drawing.Size(209, 45);
             this.fPredictionSlider.TabIndex = 22;
+            this.fPredictionSlider.Value = 100;
             this.fPredictionSlider.Scroll += new System.EventHandler(this.fPredictionSlider_Scroll);
             // 
             // label8
@@ -395,22 +419,6 @@
             this.wallsCB.Text = "Avoid walls";
             this.wallsCB.UseVisualStyleBackColor = true;
             this.wallsCB.CheckedChanged += new System.EventHandler(this.wallsCB_CheckedChanged);
-            // 
-            // speedLabel
-            // 
-            this.speedLabel.AutoSize = true;
-            this.speedLabel.Location = new System.Drawing.Point(331, 385);
-            this.speedLabel.Name = "speedLabel";
-            this.speedLabel.Size = new System.Drawing.Size(0, 13);
-            this.speedLabel.TabIndex = 27;
-            // 
-            // forwardLabel
-            // 
-            this.forwardLabel.AutoSize = true;
-            this.forwardLabel.Location = new System.Drawing.Point(331, 336);
-            this.forwardLabel.Name = "forwardLabel";
-            this.forwardLabel.Size = new System.Drawing.Size(0, 13);
-            this.forwardLabel.TabIndex = 26;
             // 
             // groupBox2
             // 
@@ -498,10 +506,38 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Camera View";
             // 
+            // posZSlider
+            // 
+            this.posZSlider.Location = new System.Drawing.Point(6, 121);
+            this.posZSlider.Maximum = 200;
+            this.posZSlider.Minimum = -200;
+            this.posZSlider.Name = "posZSlider";
+            this.posZSlider.Size = new System.Drawing.Size(209, 45);
+            this.posZSlider.TabIndex = 14;
+            this.posZSlider.Scroll += new System.EventHandler(this.posZSlider_Scroll);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(221, 130);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(53, 13);
+            this.label14.TabIndex = 15;
+            this.label14.Text = "Look at Z";
+            // 
+            // lookZLabel
+            // 
+            this.lookZLabel.AutoSize = true;
+            this.lookZLabel.Location = new System.Drawing.Point(338, 130);
+            this.lookZLabel.Name = "lookZLabel";
+            this.lookZLabel.Size = new System.Drawing.Size(0, 13);
+            this.lookZLabel.TabIndex = 16;
+            // 
             // posXSlider
             // 
             this.posXSlider.Location = new System.Drawing.Point(6, 19);
             this.posXSlider.Maximum = 200;
+            this.posXSlider.Minimum = -200;
             this.posXSlider.Name = "posXSlider";
             this.posXSlider.Size = new System.Drawing.Size(209, 45);
             this.posXSlider.TabIndex = 2;
@@ -520,6 +556,7 @@
             // 
             this.trackBar2.Location = new System.Drawing.Point(6, 70);
             this.trackBar2.Maximum = 200;
+            this.trackBar2.Minimum = -200;
             this.trackBar2.Name = "trackBar2";
             this.trackBar2.Size = new System.Drawing.Size(209, 45);
             this.trackBar2.TabIndex = 4;
@@ -549,32 +586,6 @@
             this.lookXLabel.Name = "lookXLabel";
             this.lookXLabel.Size = new System.Drawing.Size(0, 13);
             this.lookXLabel.TabIndex = 12;
-            // 
-            // posZSlider
-            // 
-            this.posZSlider.Location = new System.Drawing.Point(6, 121);
-            this.posZSlider.Maximum = 200;
-            this.posZSlider.Name = "posZSlider";
-            this.posZSlider.Size = new System.Drawing.Size(209, 45);
-            this.posZSlider.TabIndex = 14;
-            this.posZSlider.Scroll += new System.EventHandler(this.posZSlider_Scroll);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(221, 130);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(53, 13);
-            this.label14.TabIndex = 15;
-            this.label14.Text = "Look at Z";
-            // 
-            // lookZLabel
-            // 
-            this.lookZLabel.AutoSize = true;
-            this.lookZLabel.Location = new System.Drawing.Point(338, 130);
-            this.lookZLabel.Name = "lookZLabel";
-            this.lookZLabel.Size = new System.Drawing.Size(0, 13);
-            this.lookZLabel.TabIndex = 16;
             // 
             // groupBox4
             // 
@@ -643,11 +654,23 @@
             this.maxSwayLabel.Size = new System.Drawing.Size(0, 13);
             this.maxSwayLabel.TabIndex = 12;
             // 
+            // btnDiscard
+            // 
+            this.btnDiscard.Location = new System.Drawing.Point(290, 507);
+            this.btnDiscard.Name = "btnDiscard";
+            this.btnDiscard.Size = new System.Drawing.Size(804, 23);
+            this.btnDiscard.TabIndex = 30;
+            this.btnDiscard.Text = "Discard Changes";
+            this.btnDiscard.UseVisualStyleBackColor = true;
+            this.btnDiscard.Visible = false;
+            this.btnDiscard.Click += new System.EventHandler(this.btnDiscard_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1110, 571);
+            this.Controls.Add(this.btnDiscard);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -661,6 +684,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.Text = "Camera Interface";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.fovSlider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.distanceSlider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.upperHightSlider)).EndInit();
@@ -677,9 +701,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.rotationSmoothSlider)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.posZSlider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.posXSlider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.posZSlider)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.maxSwaySlider)).EndInit();
@@ -747,6 +771,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label swaySpeedLabel;
         private System.Windows.Forms.Label maxSwayLabel;
+        private System.Windows.Forms.Button btnDiscard;
     }
 }
 

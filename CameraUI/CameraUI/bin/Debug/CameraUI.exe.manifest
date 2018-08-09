@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CameraUI.exe" size="27616">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CameraUI.exe" size="30176">
       <assemblyIdentity name="CameraUI" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>NV1zxGf+XNwvzvhryJ8gLME4WRrpboGRCv5d1rfCT5U=</dsig:DigestValue>
+        <dsig:DigestValue>rNk1TJj6I2UahRlifvUqavihAHo9v+jVyzDC6RqbpHo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
